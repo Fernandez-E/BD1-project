@@ -1,4 +1,4 @@
-from functions.get_ids import id_tipo, id_montadora, id_loja
+from functions.get_ids import get_ids
 
 def menu():
     print("Insira a operação desejada:")
@@ -22,19 +22,25 @@ def menu():
     return [function, table]
     
     
-def listar_ids_tipo(ids):
-    tipos = id_tipo()
+def listar_ids_tipo():
+    tipos = get_ids('tipo')
     for item in tipos:
         print(f"{item[0]} - {item[1]}")
     
-def listar_ids_montadora(ids):
-    tipos = id_montadora()
+def listar_ids_montadora():
+    tipos = get_ids('montadora')
     for item in tipos:
         print(f"{item[0]} - {item[1]}, {item[2]}")
     
     
-def listar_ids_loja(ids):
-    tipos = id_montadora()
+def listar_ids_loja():
+    tipos = get_ids('loja')
     for item in tipos:
         print(f"{item[0]} - {item[1]}, {item[2]}, {item[3]}, {item[4]}, {item[5]}")
+        
+
+def listar_ids_veiculos():
+    veiculos = get_ids('veiculo')
+    for veiculo in veiculos:
+        print(f'{veiculo[0]} - Placa: {veiculo[1]} >>> {veiculo[3]}, {veiculo[2]}, {veiculo[6]}')
     
