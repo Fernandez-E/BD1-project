@@ -2,7 +2,7 @@ from functions.create import createDB, createTable, createTables
 from functions.menu import menu, listar_ids_tipo, listar_ids_montadora, listar_ids_loja, listar_ids_veiculos
 from functions.tipo_functions import inserir_tipo
 from functions.get_ids import get_ids
-from functions.database_functions import inserir, remover
+from functions.database_functions import inserir, remover, listar, listarJoin
 
 createTables()
 
@@ -64,27 +64,25 @@ while (True):
         values = f'"{tipo}","{rodas}", "{passageiros}"'
         inserir(DB, table, columns, values)
         
-    elif (option[0] == 2 and option[1] == 1): # TODO: REMOVER VEÍCULO
+    elif (option[0] == 2 and option[1] == 1): # REMOVER VEÍCULO
         listar_ids_veiculos()
         TB = 'veiculo'
         TB_NAME = 'id_veiculo'
         id_remover = int(input("Id do veículo para remover: "))
         remover(DB, TB, TB_NAME, id_remover)
-        
-    elif (option[0] == 2 and option[1] == 2): # TODO: REMOVER LOJA
+    elif (option[0] == 2 and option[1] == 2): # REMOVER LOJA
         listar_ids_loja()
         TB = 'loja'
         TB_NAME = 'id_loja'
         id_remover = int(input("Id da loja para remover: "))
-        remover(DB, TB, TB_NAME, id_remover)
-        
-    elif (option[0] == 2 and option[1] == 3): # TODO: REMOVER MONTADORA
+        remover(DB, TB, TB_NAME, id_remover)    
+    elif (option[0] == 2 and option[1] == 3): # REMOVER MONTADORA
         listar_ids_montadora()
         TB = 'montadora'
         TB_NAME = 'id_montadora'
         id_remover = int(input("Id da montadora para remover: "))
         remover(DB, TB, TB_NAME, id_remover)
-    elif (option[0] == 2 and option[1] == 4): # TODO: REMOVER TIPO
+    elif (option[0] == 2 and option[1] == 4): # REMOVER TIPO
         listar_ids_tipo()
         TB = 'tipo'
         TB_NAME = 'id_tipo'
@@ -101,7 +99,7 @@ while (True):
         ...
         
     elif (option[0] == 4 and option[1] == 1): # TODO: LISTAR VEÍCULO
-        ...       
+        listarJoin(DB, 'veiculo', 'loja', 'veiculo.id_loja', 'loja.id_loja')
     elif (option[0] == 4 and option[1] == 2): # TODO: LISTAR LOJA
         ...
     elif (option[0] == 4 and option[1] == 3): # TODO: LISTAR MONTADORA
