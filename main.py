@@ -2,7 +2,7 @@ from functions.create import createDB, createTable, createTables
 from functions.menu import menu, listar_ids_tipo, listar_ids_montadora, listar_ids_loja, listar_ids_veiculos
 from functions.tipo_functions import inserir_tipo
 from functions.get_ids import get_ids
-from functions.database_functions import inserir
+from functions.database_functions import inserir, remover
 
 createTables()
 
@@ -64,30 +64,47 @@ while (True):
         values = f'"{tipo}","{rodas}", "{passageiros}"'
         inserir(DB, table, columns, values)
         
-    elif (option[0] == 2 and option[1] == 1): # REMOVER VEÍCULO
+    elif (option[0] == 2 and option[1] == 1): # TODO: REMOVER VEÍCULO
         listar_ids_veiculos()
+        TB = 'veiculo'
+        TB_NAME = 'id_veiculo'
+        id_remover = int(input("Id do veículo para remover: "))
+        remover(DB, TB, TB_NAME, id_remover)
         
-    elif (option[0] == 2 and option[1] == 2): # REMOVER LOJA
-        ...
-    elif (option[0] == 2 and option[1] == 3): # REMOVER MONTADORA
-        ...
-    elif (option[0] == 2 and option[1] == 4): # REMOVER TIPO
-        ...
+    elif (option[0] == 2 and option[1] == 2): # TODO: REMOVER LOJA
+        listar_ids_loja()
+        TB = 'loja'
+        TB_NAME = 'id_loja'
+        id_remover = int(input("Id da loja para remover: "))
+        remover(DB, TB, TB_NAME, id_remover)
+        
+    elif (option[0] == 2 and option[1] == 3): # TODO: REMOVER MONTADORA
+        listar_ids_montadora()
+        TB = 'montadora'
+        TB_NAME = 'id_montadora'
+        id_remover = int(input("Id da montadora para remover: "))
+        remover(DB, TB, TB_NAME, id_remover)
+    elif (option[0] == 2 and option[1] == 4): # TODO: REMOVER TIPO
+        listar_ids_tipo()
+        TB = 'tipo'
+        TB_NAME = 'id_tipo'
+        id_remover = int(input("Id do tipo de veículo para remover: "))
+        remover(DB, TB, TB_NAME, id_remover)
 
-    elif (option[0] == 3 and option[1] == 1): # EDITAR VEÍCULO
+    elif (option[0] == 3 and option[1] == 1): # TODO: EDITAR VEÍCULO
         ...       
-    elif (option[0] == 3 and option[1] == 2): # EDITAR LOJA
+    elif (option[0] == 3 and option[1] == 2): # TODO: EDITAR LOJA
         ...
-    elif (option[0] == 3 and option[1] == 3): # EDITAR MONTADORA
+    elif (option[0] == 3 and option[1] == 3): # TODO: EDITAR MONTADORA
         ...
-    elif (option[0] == 3 and option[1] == 4): # EDITAR TIPO
+    elif (option[0] == 3 and option[1] == 4): # TODO: EDITAR TIPO
         ...
         
-    elif (option[0] == 4 and option[1] == 1): # LISTAR VEÍCULO
+    elif (option[0] == 4 and option[1] == 1): # TODO: LISTAR VEÍCULO
         ...       
-    elif (option[0] == 4 and option[1] == 2): # LISTAR LOJA
+    elif (option[0] == 4 and option[1] == 2): # TODO: LISTAR LOJA
         ...
-    elif (option[0] == 4 and option[1] == 3): # LISTAR MONTADORA
+    elif (option[0] == 4 and option[1] == 3): # TODO: LISTAR MONTADORA
         ...
-    elif (option[0] == 4 and option[1] == 4): # LISTAR TIPO
+    elif (option[0] == 4 and option[1] == 4): # TODO: LISTAR TIPO
         ...
