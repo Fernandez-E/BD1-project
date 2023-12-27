@@ -43,4 +43,16 @@ def listar_ids_veiculos():
     veiculos = get_ids('veiculo')
     for veiculo in veiculos:
         print(f'{veiculo[0]} - Placa: {veiculo[1]} >>> {veiculo[3]}, {veiculo[2]}, {veiculo[6]}')
-    
+
+def listar_veiculos():
+        print("Quais veículos deseja listar?")
+        print("1 - Todos")
+        print("2 - Por loja")
+        print("3 - Por montadora")
+        print("4 - Por tipo")
+
+        
+        veiculos = int(input(">>> "))
+        if (veiculos not in (1, 2, 3, 4)):
+            veiculos = listar_veiculos()
+        return veiculos
