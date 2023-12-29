@@ -75,3 +75,10 @@ def listarJoinTipo(databaseName, firstTableName, secondTableName, firstTableFiel
     cursor.execute(f'SELECT * FROM {firstTableName} INNER JOIN {secondTableName} ON {firstTableField} = {secondTableField}')
     for item in cursor.fetchall():
         print(f"[{item[1]}] {item[3]} {item[2]} {item[6]} : {item[10]}, {item[11]} rodas, {item[12]} passageiros")
+        
+def atualizarVeiculo(databaseName, tableName, field, value, idField, objectID):
+    conn = sqlite3.connect(databaseName)
+    cursor = conn.cursor()
+    cursor.execute(f'UPDATE {tableName} SET {field} = "{value}" WHERE {idField} = {objectID}')
+    conn.commit()
+    
